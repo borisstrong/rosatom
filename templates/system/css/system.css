@@ -1,0 +1,331 @@
+html, body {
+	height: 100vh;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+	color: #222;
+	--color-color_1: hsl(240deg 7% 34%);
+	--color-color_2: hsl(240deg 7% 50%);
+    --color-active: hsl(212deg 55% 42%);
+    --color-inactive: hsl(0, 0%, 47%);
+    --color-bg-gray: hsl(0deg 0% 96%);
+}
+
+.text_align_center {
+	text-align: center;
+}
+
+td {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+}
+
+h1, .title {
+	margin: 0px 0px 20px 0px;
+	font-size: 24px;
+    font-weight: 400;
+}
+
+/* --- Разметка шаблона --- */
+.left_panel {
+    position: fixed;
+    top: 0px;
+    width: 140px;
+    min-height: 100vh;
+    color: #fff;
+    background-color: var(--color-color_1);
+}
+
+.main {
+    flex-direction: column;
+    align-content: space-between;
+    min-width: 320px;
+    min-height: 100vh;
+    margin-left: 140px;
+    background-color: var(--color-bg-gray);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    background-color: #fff;
+    box-shadow: 0px 0px 40px 0px rgb(224 227 235);
+}
+
+.footer {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+	color: #999;
+    background-color: #e7e7e7;
+}
+
+
+/* --- left_panel  --- */
+.left_panel_header {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+	text-align: center;
+	height: 69px;
+    border-top: solid 1px hsl(240 7% 12%);
+}
+
+.left_panel_logo {
+	text-align: center;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.left_panel_phone {
+	text-align: center;
+    font-size: 10px;
+}
+
+.left_panel_header a {
+	text-decoration: none;
+	color: #fff;
+}
+
+
+/* --- header_ico_square --- */
+.header_ico_square {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5px;
+    padding: 5px;
+    height: 60px;
+    width: 60px;
+    font-size: 10px;
+    text-align: center;
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--color-color_1);
+    cursor: pointer;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.header_ico_square:hover {
+	color: var(--color-active);
+	border: solid 1px var(--color-active);
+}
+
+.header_ico_square svg {
+    width: 40px;
+    height: 40px;
+    fill: var(--color-color_1);
+    margin-bottom: 5px;
+    transition: 0.3s;
+}
+
+.header_ico_square:hover svg {
+    fill: var(--color-active);
+}
+
+.header_ico_square_text {
+    font-size: 10px;
+    text-align: center;
+}
+
+.header_version {
+    height: 36px;
+    line-height: 36px;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+
+/* --- left_ico_square --- */
+.left_ico_square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px;
+    height: 100px;
+    width: 100%;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #fff;
+    border-top: solid 1px hsl(240 7% 50%);
+    border-bottom: solid 1px hsl(240 7% 12%);
+    transition: 0.3s;
+}
+
+.left_ico_square:hover {
+    color: #fff;
+	background-color: var(--color-active);
+    border-top: solid 1px hsl(240 7% 50%);
+    border-bottom: solid 1px hsl(240 50% 12%);
+}
+
+.left_ico_square svg {
+    width: 40px;
+    height: 40px;
+    fill: #fff;
+    transition: 0.3s;
+}
+
+.left_ico_square:hover svg {
+    fill: #fff;
+}
+
+.left_ico_square_border {
+	border-top: solid 1px #0087f3;
+}
+
+.left_ico_square_text {
+    margin-top: 10px;
+    text-align: center;
+	font-size: 12px;
+}
+
+
+
+/* --- ico square --- */
+.ico_square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0px 20px 20px 0px;
+    padding: 10px;
+    height: 120px;
+    width: 120px;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: var(--color-active);
+    /* border: solid 1px #2196F3; */
+    border-radius: 10px;
+    background-color: #fff;
+    transition: 0.3s;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.ico_square:hover {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+    transform: scale(.97);
+    color: #777777;
+    border-color: #C7C7C7;
+}
+
+.ico_square svg {
+    width: 50px;
+    height: 50px;
+    fill: #2196F3;
+    transition: 0.3s;
+}
+
+.ico_square:hover svg {
+    fill: #777777;
+}
+
+.ico_square_text {
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+/* --- Content --- */
+.content {
+	padding: 20px 30px;
+    min-height: calc(100vh - 110px);
+}
+
+
+/* --- Admin table --- */
+.admin_table {
+    border: 1px solid #adbdca;
+    border-spacing: 0;
+    width: 100%
+}
+
+.admin_table td {
+    height: 40px;
+    padding: 0 0 0 10px;
+    vertical-align: middle;
+    border-bottom: solid 1px #e7e7e7;
+    box-sizing: border-box;
+}
+
+.admin_table th {
+    padding: 0;
+    height: 38px;
+    text-align: left;
+    padding-left: 10px;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid;
+    border-color: #e2e5e7 #8f989d #969b9d #eff0f0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    text-shadow: 0 1px rgba(255, 255, 255, 0.7);
+    background-color: #c2cbcf;
+    background-image: linear-gradient(to bottom, #c2cbcf, #b2babb)
+}
+
+.admin_table td .contextmenu_wrap {
+    margin-left: -10px;
+}
+
+.admin_table .unpub, .admin_table .unpub a {
+    color: #bbb;
+}
+
+.admin_table .unpub .dan_contextmenu_ico {
+    fill: #bbb;
+}
+
+.admin_table a {
+    color: var(--color-active);
+    text-decoration: none;
+}
+
+.admin_table a:hover {
+    text-decoration: underline;
+}
+
+.admin_table tr.unpub, .admin_table tr.unpub a {
+    color: #bbb;
+}
+
+.admin_table tr.unpub .contextmenu_ico {
+    fill: #bbb;
+}
+
+#dan_modal_progress {
+	width: 100%;
+    height: 30px;
+}
+
+
+/* --- overriding styles ---*/
+input.dan_button_green {
+	text-align: center;
+	background-color: var(--color-active);
+	border: 1px solid var(--color-active);
+	border-radius: 10px;
+}
+
+input.dan_button_green:hover {
+	background-color: hsl(212deg 55% 52%);
+	border: 1px solid var(--color-active);
+}
+
+
+/* --- */
+.result_separator {
+	height: 20px;
+}

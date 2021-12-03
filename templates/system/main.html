@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+<title>{{ title | safe }}</title>
+<link rel="stylesheet" href="/templates/system/css/system.css" />
+{{ head | safe }}
+</head>
+<body>
+{% if AUTH == 0 %}
+	<div id="content">{{ content | safe }}</div>
+{% else %}
+<div class="left_panel">
+	<div class="left_panel_header">"Команда УИИ"</div>	
+	<a href="/system" class="left_ico_square">
+		<svg><use xlink:href="/templates/system/images/sprite.svg#map_6"></use></svg>
+		<div class="left_ico_square_text">Карта</div>
+	</a>	
+	<a href="/system/docs" class="left_ico_square">
+		<svg><use xlink:href="/templates/system/images/sprite.svg#files"></use></svg>
+		<div class="left_ico_square_text">Документы</div>
+	</a>
+	<a href="/system/unzip" class="left_ico_square">
+		<svg><use xlink:href="/templates/system/images/sprite.svg#unzip"></use></svg>
+		<div class="left_ico_square_text">Распаковать</div>
+	</a>
+	<a href="/system/map_generate" class="left_ico_square">
+		<svg><use xlink:href="/templates/system/images/sprite.svg#map_10"></use></svg>
+		<div class="left_ico_square_text">Сгенерировать карты</div>
+	</a>
+</div>
+<div class="main">
+	<div class="header">
+		<a href="/system" target="blank" class="header_ico_square">
+			<svg><use xlink:href="/templates/system/images/sprite.svg#home"></use></svg>
+			<div class="header_ico_square_text">Главная</div>
+		</a>
+	</div>
+	<div id="content" class="content">{{ content | safe }}</div>
+	<div class="footer">Команда УИИ</div>
+</div>
+{% endif %}
+</body>
+</html>
+
+
+
+
+
+
+
