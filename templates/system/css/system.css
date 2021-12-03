@@ -115,6 +115,7 @@ h1, .title {
     box-sizing: border-box;
     background: #fff;
     transition: 0.3s;
+	cursor: pointer;
 }
 
 .header_ico_square:hover {
@@ -162,6 +163,7 @@ h1, .title {
     border-top: solid 1px hsl(240 7% 50%);
     border-bottom: solid 1px hsl(240 7% 12%);
     transition: 0.3s;
+	cursor: pointer;
 }
 
 .left_ico_square:hover {

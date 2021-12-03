@@ -4,6 +4,9 @@
 <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
 <title>{{ title | safe }}</title>
 <link rel="stylesheet" href="/templates/system/css/system.css" />
+<script src="/lib/DAN/DAN.js"></script>
+<link rel="stylesheet" href="/lib/DAN/DAN.css" />
+<script src="/templates/system/js/system.js"></script>
 {{ head | safe }}
 </head>
 <body>
@@ -24,10 +27,10 @@
 		<svg><use xlink:href="/templates/system/images/sprite.svg#unzip"></use></svg>
 		<div class="left_ico_square_text">Распаковать</div>
 	</a>
-	<a href="/system/map_generate" class="left_ico_square">
+	<div id="map_create" class="left_ico_square">
 		<svg><use xlink:href="/templates/system/images/sprite.svg#map_10"></use></svg>
-		<div class="left_ico_square_text">Сгенерировать карты</div>
-	</a>
+		<div class="left_ico_square_text">Создать карту из файлов</div>
+	</div>
 </div>
 <div class="main">
 	<div class="header">

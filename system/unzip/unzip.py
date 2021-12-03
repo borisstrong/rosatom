@@ -19,5 +19,6 @@ def unzip(SITE):
             os.remove(gz_file)
 
     SITE.content = f'''
-        <h1>Все файлы L2A.npy.gz -> L2A.npy распакованы</h1>
+        <h1>Утилита распаковки файлов</h1>
+        <div>Все файлы L2A.npy.gz -> L2A.npy распакованы</div>
     '''

@@ -1,6 +1,10 @@
 ymaps.ready(init);
 
 function init() {
+
+    // Читаем json файл
+    console.log(data)
+
     var myMap = new ymaps.Map("map", {
             center: [55.76, 37.64],
             zoom: 10
@@ -8,7 +12,7 @@ function init() {
             // searchControlProvider: 'yandex#search'
         }),
 
-    // Создаем геообъект с типом геометрии "Точка".
+        // Создаем геообъект с типом геометрии "Точка".
         myGeoObject = new ymaps.GeoObject({
             // Описание геометрии.
             geometry: {
@@ -29,8 +33,32 @@ function init() {
             draggable: true
         })
 
+        // Создаем прямоугольник с помощью вспомогательного класса.
+        myRectangle = new ymaps.Rectangle([
+            // Задаем координаты диагональных углов прямоугольника.
+            [55.66, 37.60],
+            [55.71, 37.69]
+        ], {
+            //Свойства
+            hintContent: 'Меня перетаскивать нельзя!',
+            balloonContent: 'Прямоугольник 1'
+        }, {
+            // Опции.
+            // Цвет и прозрачность заливки.
+            fillColor: '#7df9ff',
+            // Дополнительная прозрачность заливки..
+            fillOpacity: 0.32,
+            // Цвет обводки.
+            strokeColor: '#0000FF',
+            // Прозрачность обводки.
+            strokeOpacity: 0.62,
+            // Ширина линии.
+            strokeWidth: 2,
+        });
+
     myMap.geoObjects
         .add(myGeoObject)
+        .add(myRectangle)
         .add(new ymaps.Placemark([55.826479, 37.487208], {
             balloonContent: '<div id="quadcopter">Точка взлёта квадрокоптера</div>'
         }, {

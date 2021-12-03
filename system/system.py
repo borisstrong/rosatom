@@ -2,6 +2,7 @@ from aiohttp import web
 from system.mainpage import mainpage
 from system.ajax import ajax
 from system.unzip import unzip
+from system.map_create import map_create
 
 
 def router(SITE):
@@ -14,6 +15,7 @@ def router(SITE):
     functions = {
         '': mainpage.mainpage,
         'unzip': unzip.unzip,
+        'map_create': map_create.map_create,
         'get_date_ajax': ajax.get_date_ajax,
     }
 
