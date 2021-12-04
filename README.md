@@ -1,9 +1,12 @@
-**Модель трансформер** - final_model_train_additional.ipynb 
-**Inference** - Final_CCT_inference.ipynb
-**Интерпретация модели** - final_model_analysis.ipynb
-**Основная утилита создания датафрейма** - dataframe_creation_utility.ipynb
+**final_model_train_additional.ipynb** - модель трансформер
 
-**Датафреймы находятся в папке** - dataframes
+**Final_CCT_inference.ipynb** - inference 
+
+**final_model_analysis.ipynb** - интерпретация модели 
+
+**dataframe_creation_utility.ipynb** - основная утилита создания датафрейма 
+
+**dataframes** - папка с датафреймами
 
 **files_pollution.csv** - основная созданная база, соединяет таблицу с загрязнениями и папки с файлами снимков.
 
@@ -17,4 +20,4 @@
 
 **no_bbox_2021.csv, no_timestamp_2021.csv** - таблицы со списком файлов, где  не нашлось нужных данных
 
-**Для запуска веб-сервиса запустите** - main.py
+**main.py** - файл для запуска веб-сервиса
