@@ -3,6 +3,7 @@ from system.mainpage import mainpage
 from system.ajax import ajax
 from system.unzip import unzip
 from system.map_create import map_create
+from system.example_prediction import example_prediction
 
 
 def router(SITE):
@@ -16,7 +17,8 @@ def router(SITE):
         '': mainpage.mainpage,
         'unzip': unzip.unzip,
         'map_create': map_create.map_create,
-        'get_date_ajax': ajax.get_date_ajax,
+        'get_images_ajax': ajax.get_images_ajax,
+        'example_prediction': example_prediction.example_prediction
     }
 
     if (SITE.p[1] not in functions):

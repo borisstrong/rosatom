@@ -28,3 +28,9 @@
 	width: 100%;
 	height: 500px;
 }
+
+.yamps_but {
+	text-decoration: underline;
+    font-weight: 600;
+	cursor: pointer;
+}

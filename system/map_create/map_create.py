@@ -13,10 +13,12 @@ def map_create(SITE):
     with open(DIR+'/patches.yaml') as fh:
         read_data = yaml.safe_load(fh)
 
+    '''
     for dir_name in DIR:
         if (os.path.isdir(DIR + '/' + dir_name)):
             get_df(dir_name)  # Формируем json файлы и датафреймы
-
+    '''
+    get_df('2021-01')
 
     SITE.content = f'''
         <h1>Утилита создания объектов карты из файлов</h1>
@@ -33,10 +35,11 @@ def get_df(dir_name):
         read_data = yaml.safe_load(fh)
 
     result_list = []
+    i = 0
     for yaml_el in read_data['patches']:
-        for path_el in os.walk(DIR + '/' + dir_name):
-            if path_el[1] == ['data', 'mask']:
-                print(yaml_el['uid'])
+        for path_el in os.walk(DIR + '/' + dir_name + '/' + yaml_el['uid']):
+            if path_el[1] == ['data', 'mask'] or path_el[1] == ['mask', 'data']:
+                print(i, yaml_el['uid'])
                 eopatch = EOPatch.load(path_el[0], lazy_loading=True)
                 bbox = list(eopatch['bbox'])
                 dct = {
@@ -50,6 +53,7 @@ def get_df(dir_name):
                 'status':0
                 }
                 result_list.append(dct)
+                i += 1
     df = pd.DataFrame(result_list)
     df.head()
     df.to_csv(DIR + '/' + dir_name+'/df_for_map.csv')

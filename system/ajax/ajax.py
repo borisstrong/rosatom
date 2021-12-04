@@ -2,23 +2,26 @@ import os
 import shutil
 import numpy as np
 import json
+import base64
 from datetime import datetime
-
-'''
 import matplotlib.pyplot as plt
 
-from skimage.io import imread  # Чтение файла сразу в np массив, для варианта с обрезкой
 
-import tensorflow as tf
-from tensorflow.keras.preprocessing import image  # Для работы с изображениями 
-from tensorflow.keras.models import Sequential
-from tensorflow.keras import layers
-from tensorflow.keras.applications import EfficientNetB0
-from keras.applications.imagenet_utils import decode_predictions  # Для декодирования лейблов
-from tensorflow.keras.applications import 
-'''
+def get_images_ajax(SITE):
+    uid = SITE.post['uid']
+    dir = 'files/oil_pipelines/2021-01/' + uid + '/sentinel2-l2a/patches/64x64-10/2021/data'
+    path = dir + '/L2A.npy'
+    imgs_np = np.load(path)
 
+    imgs_list = []
+    for i in range(imgs_np.shape[0]):
+        img = imgs_np[i,0:64,0:64,0]
+        file_path = dir + '/' + str(i) + '.jpg'
+        plt.figure(figsize=(0.64, 0.64))
+        plt.axis('off')
+        plt.imshow(img, cmap='gray')
+        plt.savefig(file_path)
+        imgs_list.append('/' + file_path)
 
-def get_date_ajax(SITE):
-    answer = {'answer': 'success'}
+    answer = {'answer': 'success', 'imgs': imgs_list}
     return {'ajax': json.dumps(answer)}

@@ -1,18 +1,16 @@
 ymaps.ready(init);
 
 function init() {
-
-    // Читаем json файл
-    console.log(data)
-
     var myMap = new ymaps.Map("map", {
-            center: [55.76, 37.64],
+            // center: [55.76, 37.64],
+            center: [data[0]['y1'], data[0]['x1']],
             zoom: 10
         }, {
             // searchControlProvider: 'yandex#search'
-        }),
+        })
 
         // Создаем геообъект с типом геометрии "Точка".
+        /*
         myGeoObject = new ymaps.GeoObject({
             // Описание геометрии.
             geometry: {
@@ -32,16 +30,19 @@ function init() {
             // Метку можно перемещать.
             draggable: true
         })
+        */
 
-        // Создаем прямоугольник с помощью вспомогательного класса.
-        myRectangle = new ymaps.Rectangle([
+    // Выбираем первые 100 bbox
+    console.log(data)
+    for (var i = 0; i < data.length; i++) {
+        rect = new ymaps.Rectangle([
             // Задаем координаты диагональных углов прямоугольника.
-            [55.66, 37.60],
-            [55.71, 37.69]
+            [data[i]['y1'], data[i]['x1']],
+            [data[i]['y2'], data[i]['x2']]
         ], {
             //Свойства
-            hintContent: 'Меня перетаскивать нельзя!',
-            balloonContent: 'Прямоугольник 1'
+            hintContent: data[i]['uid'],
+            balloonContent: '<div class="yamps_but" onclick="MP.get_images_ajax(\'' + data[i]['uid'] + '\')">Посмотреть</div>'
         }, {
             // Опции.
             // Цвет и прозрачность заливки.
@@ -56,6 +57,10 @@ function init() {
             strokeWidth: 2,
         });
 
+        myMap.geoObjects.add(rect)
+    }
+
+    /*
     myMap.geoObjects
         .add(myGeoObject)
         .add(myRectangle)
@@ -78,4 +83,23 @@ function init() {
             preset: 'islands#redDotIconWithCaption',
             iconCaptionMaxWidth: '50'
         }));
+    */
+}
+
+MP = {
+    get_images_ajax(uid){
+        console.log(uid)
+        DAN.modal.spinner()
+		let form = new FormData()
+		form.append('uid', uid)
+		DAN.ajax('/system/get_images_ajax', form, (data) => {
+			console.log(data.imgs)
+            let html = ''
+            for (let i = 0; i < data.imgs.length; i++) {
+                html += '<img class="yaml_img" src="' + data.imgs[i] + '">'
+            }
+            html = '<h2>Изображения в первом канале</h2><div class="dan_flex_row_start">' + html + '</div>'
+            DAN.modal.add(html)
+		})
+    }
 }
